@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV Data API</title>
+</head>
+
+<body>
+    <h1>CSV Data</h1>
+    <form id="api-key-form">
+        <label for="api-key">Enter API Key:</label>
+        <input type="text" id="api-key" required>
+        <button type="submit">Download CSV</button>
+    </form>
+    
+    <ul id="data-list"></ul>
+
+    <script>
+        const dataList = document.getElementById('data-list');
+
+        const apiKeyForm = document.getElementById('api-key-form');
+
+        apiKeyForm.addEventListener('submit', async event => {
+            event.preventDefault();
+            const apiKey = document.getElementById('api-key').value;
+
+            // Validate the API key (replace 'customapibyvikram#21m' with the actual API key)
+            if (apiKey === 'customapibyvikram#21m') {
+                // If the API key is valid, trigger the CSV download
+                window.location.href = 'http://127.0.0.1:5000/api/download_csv?api_key=' + apiKey;
+            } else {
+                alert('Invalid API Key');
+            }
+        });
+    </script>
+</body>
+
+</html>
